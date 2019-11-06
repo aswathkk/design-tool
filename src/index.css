@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.AppContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ad5389;
+  background: -webkit-linear-gradient(to right, #ad5389, #3c1053);
+  background: linear-gradient(to right, #ad5389, #3c1053);
+  height: 100%;
+}
+
+html, body, #root {
+  height: 100%;
+}

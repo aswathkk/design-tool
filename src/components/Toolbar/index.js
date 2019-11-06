@@ -3,7 +3,6 @@ import { fabric } from 'fabric';
 
 import style from './toolbar.module.css';
 import { CanvasContext, useCanvas } from '../../utils/useCanvas';
-import ToggleLockBtn from '../ToggleLockBtn';
 
 const Toolbar = props => {
   const { canvas } = useContext(CanvasContext);
@@ -24,8 +23,6 @@ const Toolbar = props => {
 
   return (
     <div className={style.root}>
-      <div>Toolbar</div>
-        <ToggleLockBtn />
     </div>
   )
 }

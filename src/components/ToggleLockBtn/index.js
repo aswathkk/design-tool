@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-
+import { LockOutlined, LockOpenOutlined } from '@material-ui/icons';
 import { CanvasContext, useCanvas } from '../../utils/useCanvas';
 import useCanvasEvent from '../../utils/useCanvasEvent';
 
@@ -37,9 +37,9 @@ const ToggleLockBtn = (props) => {
   }
 
   return (
-    <button onClick={lockActiveObject}>
-      {isLocked ? 'unlock' : 'lock'}
-    </button>
+    <div style={{ padding: '7px', cursor: 'pointer' }} onClick={lockActiveObject}>
+      {isLocked ? <LockOpenOutlined /> : <LockOutlined />}
+    </div>
   );
 }
 

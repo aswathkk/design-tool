@@ -20,12 +20,13 @@ const Canvas = (props) => {
 
   return(
     <div className={styles.root}>
-      <canvas
-        width={props.width}
-        height={props.height}
-        ref={myCanvas}
-        id="my-canvas"
-      />
+      <div className={styles.canvas}>
+        <canvas
+          width={props.width}
+          height={props.height}
+          ref={myCanvas}
+        />
+      </div>
     </div>
   );
 }
