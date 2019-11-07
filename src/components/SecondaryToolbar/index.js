@@ -4,6 +4,7 @@ import ToggleLockBtn from '../ToggleLockBtn';
 import BringForwardBtn from '../BringForwardBtn';
 import SendBackwardsBtn from '../SendBackwardsBtn';
 import DeleteBtn from '../DeleteBtn';
+import UndoBtn from '../UndoBtn';
 
 export default function SecondaryToolbar() {
   return (
@@ -12,6 +13,7 @@ export default function SecondaryToolbar() {
       <BringForwardBtn />
       <SendBackwardsBtn />
       <DeleteBtn />
+      <UndoBtn />
     </div>
   );
 }
