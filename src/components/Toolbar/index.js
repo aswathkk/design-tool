@@ -9,16 +9,30 @@ const Toolbar = props => {
 
   useCanvas(() => {
     console.log('Loaded canvas', canvas)
-    const text = new fabric.IText('shit happens!', { left: 100, top: 100 });
-    const rect = new fabric.Rect({
+    const rect1 = new fabric.Rect({
       left: 100,
       top: 100,
       fill: 'red',
-      width: 20,
-      height: 20,
+      width: 100,
+      height: 100,
     });
-    canvas.add(rect);
-    canvas.add(text); 
+    const rect2 = new fabric.Rect({
+      left: 125,
+      top: 75,
+      fill: 'green',
+      width: 100,
+      height: 100,
+    });
+    const rect3 = new fabric.Rect({
+      left: 150,
+      top: 150,
+      fill: 'blue',
+      width: 100,
+      height: 100,
+    });
+    canvas.add(rect1);
+    canvas.add(rect2);
+    canvas.add(rect3);
   }, [canvas]);
 
   return (
