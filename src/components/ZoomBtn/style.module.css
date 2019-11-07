@@ -1,0 +1,11 @@
+.root {
+  display: flex;
+}
+
+.zoomStatus {
+  padding: 7px;
+  font-size: 8pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -5,6 +5,7 @@ import BringForwardBtn from '../BringForwardBtn';
 import SendBackwardsBtn from '../SendBackwardsBtn';
 import DeleteBtn from '../DeleteBtn';
 import UndoBtn from '../UndoBtn';
+import ZoomBtn from '../ZoomBtn';
 
 export default function SecondaryToolbar() {
   return (
@@ -14,6 +15,7 @@ export default function SecondaryToolbar() {
       <SendBackwardsBtn />
       <DeleteBtn />
       <UndoBtn />
+      <ZoomBtn />
     </div>
   );
 }
