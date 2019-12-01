@@ -1,21 +1,17 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import FormatUnderlinedIcon from '@material-ui/icons/FormatUnderlined';
 
-import {useCanvas, CanvasContext} from '../../../utils/useCanvas';
+import useTool from '../../../utils/useContextTool';
 import style from './style.module.css';
 
 export default function FormatUnerlinedBtn(props) {
-  const { canvas } = useContext(CanvasContext);
   const [underline, setUnderline] = useState(props.underline);
 
-  useCanvas(() => {
-    const activeObject = canvas.getActiveObject();
-    props.onChange(underline)
-    if (activeObject) {
-      canvas.getActiveObject().set('underline', underline)
-      canvas.renderAll();
-    }
-  }, [underline])
+  useTool({
+    property: 'underline',
+    value: underline,
+    onChange: props.onChange
+  })
 
   return (
     <div className={underline ? style.btnActive : style.btn}>

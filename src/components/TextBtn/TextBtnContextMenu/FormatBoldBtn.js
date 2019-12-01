@@ -1,21 +1,17 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import FormatBoldIcon from '@material-ui/icons/FormatBold';
 
-import {useCanvas, CanvasContext} from '../../../utils/useCanvas';
+import useTool from '../../../utils/useContextTool';
 import style from './style.module.css';
 
 export default function FormatBoldBtn(props) {
-  const { canvas } = useContext(CanvasContext);
   const [fontWeight, setFontWeight] = useState(props.fontWeight);
 
-  useCanvas(() => {
-    const activeObject = canvas.getActiveObject();
-    props.onChange(fontWeight)
-    if (activeObject) {
-      canvas.getActiveObject().set('fontWeight', fontWeight)
-      canvas.renderAll();
-    }
-  }, [fontWeight])
+  useTool({
+    property: 'fontWeight',
+    value: fontWeight,
+    onChange: props.onChange
+  })
 
   return (
     <div className={fontWeight === 'bold' ? style.btnActive : style.btn}>
