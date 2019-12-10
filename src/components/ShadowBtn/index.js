@@ -100,7 +100,7 @@ export default function ShadowBtn(props) {
         </g>
       </svg>
       { isSelected &&
-      <div style={{ position: 'absolute', top: '55px', zIndex: 10 }}>
+      <div style={{ position: 'absolute', top: '55px', right: '3px', zIndex: 10 }}>
         <ShadowPicker {...props} />
       </div>
       }
