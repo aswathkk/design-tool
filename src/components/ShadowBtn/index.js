@@ -17,6 +17,7 @@ function ValuePicker(props) {
       <div style={{ fontSize: '14px', padding: '0 5px' }}>{props.label}</div>
       <div style={{ display: 'flex', padding: '0 5px 5px 10px' }}>
         <Slider
+          {...props}
           style={{ marginRight: '10px' }}
           value={value} onChange={(e, value) => setValue(value)} />
         <input
@@ -63,8 +64,8 @@ function ShadowPicker(props) {
   return (
     <div style={{ background: '#fff', width: '300px', padding: '10px',
       boxShadow: 'rgba(0, 0, 0, 0.15) 0px 0px 0px 1px, rgba(0, 0, 0, 0.15) 0px 8px 16px'}}>
-      <ValuePicker label="X-Offset" onChange={props.setOffsetX} value={props.offsetX} />
-      <ValuePicker label="Y-Offset" onChange={props.setOffsetY} value={props.offsetY} />
+      <ValuePicker min={-200} max={200} label="X-Offset" onChange={props.setOffsetX} value={props.offsetX} />
+      <ValuePicker min={-200} max={200} label="Y-Offset" onChange={props.setOffsetY} value={props.offsetY} />
       <ValuePicker label="Blur" onChange={props.setBlur} value={props.blur} />
       <ColorPicker onChange={props.setColor} value={props.color}/>
     </div>
