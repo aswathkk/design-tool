@@ -17,7 +17,13 @@ const TextBtn = ({ setContextMenu }) => {
     fontWeight: 'normal',
     fontStyle: 'normal',
     underline: false,
-    textAlign: 'left'
+    textAlign: 'left',
+    shadow: {
+      color: '#000',
+      offsetX: 0,
+      offsetY: 0,
+      blur: 0
+    }
   };
   const [ textProperties, setTextProperties ] = useState(defaultTextProperties);
 
@@ -57,12 +63,21 @@ const TextBtn = ({ setContextMenu }) => {
 
   const onTextSelected = (activeObject) => {
     setIsContextVisible(false);
+    let shadow = defaultTextProperties.shadow;
+    if (activeObject.shadow)
+      shadow = {
+        color: activeObject.shadow.color,
+        offsetX: activeObject.shadow.offsetX,
+        offsetY: activeObject.shadow.offsetY,
+        blur: activeObject.shadow.blur
+      };
     setTextProperties({
       fill: activeObject.fill,
       fontWeight: activeObject.fontWeight,
       fontStyle: activeObject.fontStyle,
       underline: activeObject.underline,
-      textAlign: activeObject.textAlign
+      textAlign: activeObject.textAlign,
+      shadow: shadow
     })
     setIsContextVisible(true);
   }

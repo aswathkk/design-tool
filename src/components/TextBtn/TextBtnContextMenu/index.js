@@ -6,6 +6,7 @@ import FormatBoldBtn from './FormatBoldBtn';
 import FormatItalicBtn from './FormatItalicBtn';
 import FormatUnderlinedBtn from './FormatUnderlinedBtn';
 import FormatAlignmentBtn from './FormatAlignmentBtn';
+import DefaultContextTools from '../../../utils/useDefaultContextTools';
 
 const TextBtnContextMenu = ({ setTextProperties, textProperties }) => {
   const onChange = val => {
@@ -38,6 +39,7 @@ const TextBtnContextMenu = ({ setTextProperties, textProperties }) => {
         textAlign={textProperties.textAlign}
         onChange={textAlign => onChange({'textAlign': textAlign})}
       />
+      <DefaultContextTools {...textProperties} />
     </div>
   );
 }
