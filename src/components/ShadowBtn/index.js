@@ -60,6 +60,19 @@ function ColorPicker(props) {
 }
 
 function ShadowPicker(props) {
+  return (
+    <div style={{ background: '#fff', width: '300px', padding: '10px',
+      boxShadow: 'rgba(0, 0, 0, 0.15) 0px 0px 0px 1px, rgba(0, 0, 0, 0.15) 0px 8px 16px'}}>
+      <ValuePicker label="X-Offset" onChange={props.setOffsetX} value={props.offsetX} />
+      <ValuePicker label="Y-Offset" onChange={props.setOffsetY} value={props.offsetY} />
+      <ValuePicker label="Blur" onChange={props.setBlur} value={props.blur} />
+      <ColorPicker onChange={props.setColor} value={props.color}/>
+    </div>
+  );
+}
+
+export default function ShadowBtn(props) {
+  const [isSelected, setIsSelected] = useState(false);
   const [color, setColor] = useState(props.color);
   const [offsetX, setOffsetX] = useState(props.offsetX);
   const [offsetY, setOffsetY] = useState(props.offsetY);
@@ -75,19 +88,12 @@ function ShadowPicker(props) {
     }
   })
 
-  return (
-    <div style={{ background: '#fff', width: '300px', padding: '10px',
-      boxShadow: 'rgba(0, 0, 0, 0.15) 0px 0px 0px 1px, rgba(0, 0, 0, 0.15) 0px 8px 16px'}}>
-      <ValuePicker label="X-Offset" onChange={setOffsetX} value={offsetX} />
-      <ValuePicker label="Y-Offset" onChange={setOffsetY} value={offsetY} />
-      <ValuePicker label="Blur" onChange={setBlur} value={blur} />
-      <ColorPicker onChange={setColor} value={color}/>
-    </div>
-  );
-}
-
-export default function ShadowBtn(props) {
-  const [isSelected, setIsSelected] = useState(false);
+  const propsForShadowPicker = {
+    offsetX, setOffsetX,
+    offsetY, setOffsetY,
+    color, setColor,
+    blur, setBlur
+  }
 
   return (
     <div className={isSelected ? style.btnActive : style.btn}>
@@ -101,7 +107,7 @@ export default function ShadowBtn(props) {
       </svg>
       { isSelected &&
       <div style={{ position: 'absolute', top: '55px', right: '3px', zIndex: 10 }}>
-        <ShadowPicker {...props} />
+        <ShadowPicker {...propsForShadowPicker} />
       </div>
       }
     </div>
