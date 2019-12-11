@@ -23,7 +23,8 @@ const TextBtn = ({ setContextMenu }) => {
       offsetX: 0,
       offsetY: 0,
       blur: 0
-    }
+    },
+    opacity: 1
   };
   const [ textProperties, setTextProperties ] = useState(defaultTextProperties);
 
@@ -77,7 +78,8 @@ const TextBtn = ({ setContextMenu }) => {
       fontStyle: activeObject.fontStyle,
       underline: activeObject.underline,
       textAlign: activeObject.textAlign,
-      shadow: shadow
+      shadow: shadow,
+      opacity: activeObject.opacity
     })
     setIsContextVisible(true);
   }

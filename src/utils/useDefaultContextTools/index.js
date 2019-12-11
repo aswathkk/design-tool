@@ -1,9 +1,13 @@
 import React from 'react';
 
 import ShadowBtn from '../../components/ShadowBtn';
+import OpacityBtn from '../../components/OpacityBtn';
 
-export default function DefaultContextTools({ shadow }) {
+export default function DefaultContextTools({ opacity, shadow }) {
   return (
-    <ShadowBtn {...shadow} />
+    <>
+      <OpacityBtn opacity={opacity} shit="ddd" />
+      <ShadowBtn {...shadow} />
+    </>
   );
 }
