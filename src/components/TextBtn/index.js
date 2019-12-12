@@ -14,6 +14,7 @@ const TextBtn = ({ setContextMenu }) => {
   const [ isContextVisible, setIsContextVisible ] = useState(false);
   const defaultTextProperties = {
     fill: '#000',
+    'textBackgroundColor': 'rgba(0,0,0,0)',
     fontWeight: 'normal',
     fontStyle: 'normal',
     underline: false,
@@ -74,6 +75,7 @@ const TextBtn = ({ setContextMenu }) => {
       };
     setTextProperties({
       fill: activeObject.fill,
+      textBackgroundColor: activeObject.textBackgroundColor,
       fontWeight: activeObject.fontWeight,
       fontStyle: activeObject.fontStyle,
       underline: activeObject.underline,

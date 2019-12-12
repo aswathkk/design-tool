@@ -7,6 +7,7 @@ import FormatItalicBtn from './FormatItalicBtn';
 import FormatUnderlinedBtn from './FormatUnderlinedBtn';
 import FormatAlignmentBtn from './FormatAlignmentBtn';
 import DefaultContextTools from '../../../utils/useDefaultContextTools';
+import TextBackgroundColorBtn from './TextBackgroundColorBtn';
 
 const TextBtnContextMenu = ({ setTextProperties, textProperties }) => {
   const onChange = val => {
@@ -21,6 +22,7 @@ const TextBtnContextMenu = ({ setTextProperties, textProperties }) => {
   return (
     <div className={style.root}>
       <TextColorBtn color={textProperties.fill} onChange={fill => onChange({'fill': fill})} />
+      <TextBackgroundColorBtn textBackgroundColor={textProperties.textBackgroundColor} onChange={fill => onChange({'textBackgroundColor': fill})} />
 
       <FormatBoldBtn
         fontWeight={textProperties.fontWeight}
