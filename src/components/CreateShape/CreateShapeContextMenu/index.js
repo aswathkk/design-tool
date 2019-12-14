@@ -5,7 +5,7 @@ import DefaultContextTools from '../../../utils/useDefaultContextTools';
 import BackgroundColorBtn from './BackgroundColorBtn';
 import BorderColorBtn from './BorderColorBtn';
 
-const TextBtnContextMenu = ({ setToolProperties, toolProperties }) => {
+const CreateShapeContextMenu = ({ setToolProperties, toolProperties }) => {
   const onChange = val => {
     setToolProperties(oldState => {
       return {
@@ -26,4 +26,4 @@ const TextBtnContextMenu = ({ setToolProperties, toolProperties }) => {
   );
 }
 
-export default TextBtnContextMenu;
+export default CreateShapeContextMenu;

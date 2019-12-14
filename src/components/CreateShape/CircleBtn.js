@@ -2,18 +2,19 @@ import React, { useState, useContext, useEffect } from 'react';
 import { fabric } from 'fabric';
 
 import style from './style.module.css';
-import RectangleBtnContextMenu from './RectangleBtnContextMenu';
+import CreateShapeContextMenu from './CreateShapeContextMenu';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 
 import { useCanvas, CanvasContext } from '../../utils/useCanvas';
 import useCanvasEvent from '../../utils/useCanvasEvent';
 
-const RectangleBtn = ({ setContextMenu }) => {
+const CircleBtn = ({ setContextMenu }) => {
   const { canvas } = useContext(CanvasContext);
   const [ isSelected, setIsSelected ] = useState(false);
   const [ isContextVisible, setIsContextVisible ] = useState(false);
   const defaultProperties = {
-    width: 0,
-    height: 0,
+    rx: 0,
+    ry: 0,
     fill: '#fff',
     stroke: '#000',
     shadow: {
@@ -32,7 +33,7 @@ const RectangleBtn = ({ setContextMenu }) => {
   useCanvas(() => {
     const mouseDownHandler = (options) => {
       const pointer = canvas.getPointer(options.e)
-      const toolObj = new fabric.Rect({
+      const toolObj = new fabric.Ellipse({
         ...toolProperties,
         left: pointer.x,
         top: pointer.y
@@ -57,8 +58,8 @@ const RectangleBtn = ({ setContextMenu }) => {
         if (orig.y > pointer.y)
           rect.set({ top: Math.abs(pointer.y) });
         rect.set({
-          width: Math.abs(orig.x - pointer.x),
-          height: Math.abs(orig.y - pointer.y)
+          rx: Math.abs(orig.x - pointer.x) / 2,
+          ry: Math.abs(orig.y - pointer.y) / 2
         });
         canvas.renderAll();
       }
@@ -93,7 +94,7 @@ const RectangleBtn = ({ setContextMenu }) => {
 
   useEffect(() => {
     if (isContextVisible)
-      setContextMenu(<RectangleBtnContextMenu toolProperties={toolProperties} setToolProperties={setToolProperties} />);
+      setContextMenu(<CreateShapeContextMenu toolProperties={toolProperties} setToolProperties={setToolProperties} />);
     else
       setContextMenu(null);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -119,14 +120,14 @@ const RectangleBtn = ({ setContextMenu }) => {
   }
 
   useCanvasEvent('selection:created', e => {
-    if (e.target.get('type') === 'rect')
+    if (e.target.get('type') === 'ellipse')
       onObjectSelected(e.target);
     else
       setIsContextVisible(false);
   });
 
   useCanvasEvent('selection:updated', e => {
-    if (e.target.get('type') === 'rect')
+    if (e.target.get('type') === 'ellipse')
       onObjectSelected(e.target);
     else
       setIsContextVisible(false);
@@ -146,16 +147,10 @@ const RectangleBtn = ({ setContextMenu }) => {
   return (
     <div className={style.root}>
       <div className={style.textBtn} onClick={handleBtnClick}>
-        <svg width="20px" height="20px" viewBox="0 0 20 20"> 
-          <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <g transform="translate(-401.000000, -579.000000)" style={{fill: isSelected ? '#000' : '#888'}}>
-              <path d="M401,599 L421,599 L421,579 L401,579 L401,599 Z M402.443299,597.556701 L419.556701,597.556701 L419.556701,580.443299 L402.443299,580.443299 L402.443299,597.556701 Z" id="Fill-1-Copy-8"/>
-            </g>
-          </g>
-        </svg>
+        <RadioButtonUncheckedIcon style={{ color: isSelected ? '#000' : '#888' }} />
       </div>
     </div>
   );
 }
 
-export default RectangleBtn;
+export default CircleBtn;
