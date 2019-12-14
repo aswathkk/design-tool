@@ -34,7 +34,8 @@ export default function OpacityBtn(props) {
   
   useTool({
     property: 'opacity',
-    value: opacity
+    value: opacity,
+    onChange: props.onChange
   })
 
   return (

@@ -41,7 +41,7 @@ const TextBtnContextMenu = ({ setTextProperties, textProperties }) => {
         textAlign={textProperties.textAlign}
         onChange={textAlign => onChange({'textAlign': textAlign})}
       />
-      <DefaultContextTools {...textProperties} />
+      <DefaultContextTools onChange={onChange} {...textProperties} />
     </div>
   );
 }

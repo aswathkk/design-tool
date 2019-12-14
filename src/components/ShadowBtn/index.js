@@ -86,7 +86,8 @@ export default function ShadowBtn(props) {
       offsetY: offsetY,
       color: color,
       blur: blur
-    }
+    },
+    onChange: props.onChange
   })
 
   const propsForShadowPicker = {
