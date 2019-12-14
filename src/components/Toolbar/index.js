@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import style from './toolbar.module.css';
 import TextBtn from '../TextBtn';
-import { RectangleBtn, CircleBtn } from '../CreateShape';
+import { RectangleBtn, CircleBtn, LineBtn } from '../CreateShape';
 
 const Toolbar = props => {
   const [ contextMenu, setContextMenu ] = useState(null);
@@ -13,6 +13,7 @@ const Toolbar = props => {
         <TextBtn setContextMenu={setContextMenu} />
         <RectangleBtn setContextMenu={setContextMenu} />
         <CircleBtn setContextMenu={setContextMenu} />
+        <LineBtn setContextMenu={setContextMenu} />
       </div>
       <div style={{flexGrow: 1, display: 'flex', justifyContent: 'flex-end'}}>
         {contextMenu}
