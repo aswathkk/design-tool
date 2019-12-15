@@ -7,5 +7,6 @@ export default function useCanvas(callback, deps) {
     if (canvas) {
       return callback();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 }

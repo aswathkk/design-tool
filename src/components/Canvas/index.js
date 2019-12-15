@@ -12,10 +12,10 @@ const Canvas = (props) => {
   const { setCanvas } = useContext(CanvasContext);
 
   useEffect(() => {
-    console.log('Canvas didMount');
     const canvas = new fabric.Canvas(myCanvas.current);
     setCanvas(canvas);
     window.canvas = canvas;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return(
@@ -25,6 +25,7 @@ const Canvas = (props) => {
           width={props.width}
           height={props.height}
           ref={myCanvas}
+          id="my-canvas"
         />
       </div>
     </div>

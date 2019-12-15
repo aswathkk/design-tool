@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { CanvasContext, useCanvas } from '../../utils/useCanvas';
-import useCanvasEvent from '../../utils/useCanvasEvent';
 import ZoomOutIcon from '@material-ui/icons/ZoomOut';
 import ZoomInIcon from '@material-ui/icons/ZoomIn';
 

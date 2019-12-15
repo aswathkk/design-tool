@@ -18,9 +18,7 @@ const CreateShapeContextMenu = ({ setToolProperties, toolProperties }) => {
   return (
     <div className={style.root}>
       <BackgroundColorBtn backgroundColor={toolProperties.fill} onChange={fill => onChange({fill})} />
-      <BorderColorBtn borderColor={toolProperties.stroke} onChange={stroke => {
-        console.log('stroke change ', stroke)
-        onChange({stroke})}} />
+      <BorderColorBtn borderColor={toolProperties.stroke} onChange={stroke => onChange({stroke})} />
       <DefaultContextTools onChange={onChange} {...toolProperties} />
     </div>
   );

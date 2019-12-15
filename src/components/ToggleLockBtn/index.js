@@ -10,7 +10,6 @@ const ToggleLockBtn = (props) => {
   useCanvas(() => {
     const obj = canvas.getActiveObject();
     if (obj) {
-      console.log('updating lock for obj')
       obj.lockMovementY = isLocked;
       obj.lockMovementX = isLocked;
       obj.lockRotation = isLocked;

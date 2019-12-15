@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { fabric } from 'fabric';
 
 import style from './style.module.css';
+import contextMenuStyle from './CreateShapeContextMenu/style.module.css';
 
 import { useCanvas, CanvasContext } from '../../utils/useCanvas';
 import useCanvasEvent from '../../utils/useCanvasEvent';
@@ -18,11 +19,8 @@ const LineBtnContextMenu = ({ setToolProperties, toolProperties }) => {
   }
 
   return (
-    <div className={style.root}>
-      <BorderColorBtn borderColor={toolProperties.stroke} onChange={stroke => {
-        console.log('stroke change ', stroke)
-        onChange({stroke})}} />
-        {/*<DefaultContextTools onChange={onChange} {...toolProperties} /> */}
+    <div className={contextMenuStyle.root}>
+      <BorderColorBtn borderColor={toolProperties.stroke} onChange={stroke => onChange({stroke})} />
     </div>
   );
 }
