@@ -1,0 +1,71 @@
+.root {
+  display: flex;
+}
+
+.textBtn {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.imageSelectorRoot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  height: 100%;
+  width: 400px;
+  z-index: 10;
+  padding: 10px;
+}
+
+.image {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.uploadBtnWrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.uploadBtnWrapper button {
+  width: 100px;
+  height: 100px;
+  border: none;
+  background: rgba(255, 255,255,0.5);
+}
+
+.uploadBtnWrapper input {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
