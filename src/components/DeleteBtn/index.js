@@ -6,9 +6,9 @@ const DeleteBtn = (props) => {
   const { canvas } = useContext(CanvasContext);
 
   const remove = () => {
-    if (canvas.getActiveObject()) {
-      canvas.remove(canvas.getActiveObject())
-    } 
+    canvas.getActiveObjects().forEach(object => {
+      canvas.remove(object)
+    });
   }
 
   return (
