@@ -6,11 +6,22 @@ import { fabric } from 'fabric';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import { CanvasContext } from '../../utils/useCanvas';
 import ImageUpload from './ImageUpload';
+import { makeStyles } from '@material-ui/core/styles';
 
 import style from './style.module.css';
 import ImageSearch from './ImageSearch';
 
+const useStyles = makeStyles(theme => ({
+  drawerContent: {
+    width: '400px',
+    [theme.breakpoints.down('sm')]: {
+      width: '300px'
+    }
+  }
+}));
+
 const ImageBtn = (props) => {
+  const classes = useStyles();
   const { canvas } = useContext(CanvasContext);
   const [ isSelected, setIsSelected ] = useState(false);
   const [ currentTab, setCurrentTab ] = useState(0);
@@ -34,7 +45,7 @@ const ImageBtn = (props) => {
         <ImageOutlinedIcon style={{color: isSelected ? '#000' : '#888'}} /> 
       </div>
       <Drawer anchor="right" open={isSelected} onClose={() => setIsSelected(false)}>
-        <div style={{width: '400px'}}>
+        <div className={classes.drawerContent}>
           <Tabs centered value={currentTab} onChange={(e, v) => setCurrentTab(v)}>
             <Tab label="Uploads" />
             <Tab label="Images" />
