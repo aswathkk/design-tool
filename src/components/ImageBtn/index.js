@@ -34,6 +34,8 @@ const ImageBtn = (props) => {
 
   const onImageSelect = img => {
     fabric.Image.fromURL(img, function(oImg) {
+      if(canvas.width < oImg.width || canvas.height < oImg.height)
+        oImg.scale(Math.min(canvas.width, canvas.height)/Math.min(oImg.width, oImg.height))
       canvas.add(oImg);
       setIsSelected(false);
     });
