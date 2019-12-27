@@ -8,6 +8,7 @@ import { CanvasContext } from '../../utils/useCanvas';
 import ImageUpload from './ImageUpload';
 
 import style from './style.module.css';
+import ImageSearch from './ImageSearch';
 
 const ImageBtn = (props) => {
   const { canvas } = useContext(CanvasContext);
@@ -42,7 +43,7 @@ const ImageBtn = (props) => {
             <ImageUpload onImageSelect={onImageSelect} />
           </div>
           <div style={{ display: currentTab === 1 ? 'block' : 'none' }}>
-            TODO: Search...
+            <ImageSearch onImageSelect={onImageSelect} />
           </div>
         </div>
       </Drawer>
