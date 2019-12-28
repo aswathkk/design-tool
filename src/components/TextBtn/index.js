@@ -19,6 +19,7 @@ const TextBtn = ({ setContextMenu }) => {
     fontStyle: 'normal',
     underline: false,
     textAlign: 'left',
+    fontFamily: 'Times New Roman',
     shadow: {
       color: '#000',
       offsetX: 0,
@@ -81,7 +82,8 @@ const TextBtn = ({ setContextMenu }) => {
       underline: activeObject.underline,
       textAlign: activeObject.textAlign,
       shadow: shadow,
-      opacity: activeObject.opacity
+      opacity: activeObject.opacity,
+      fontFamily: activeObject.fontFamily
     })
     setIsContextVisible(true);
   }
