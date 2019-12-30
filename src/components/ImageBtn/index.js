@@ -38,7 +38,7 @@ const ImageBtn = (props) => {
         oImg.scale(Math.min(canvas.width, canvas.height)/Math.min(oImg.width, oImg.height))
       canvas.add(oImg);
       setIsSelected(false);
-    });
+    }, {crossOrigin: 'anonymous'});
   }
 
   return (
