@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 import toggleLock from './utils/toggleLock';
 import styles from './canvas.module.css';
@@ -40,17 +41,24 @@ const Canvas = (props) => {
     link.click();
   }
 
+  const handleClickAway = () => {
+    window.canvas.discardActiveObject();
+    window.canvas.renderAll();
+  }
+
   return(
     <div className={styles.root}>
       <div>
-        <div className={styles.canvas}>
-          <canvas
-            width={props.width}
-            height={props.height}
-            ref={myCanvas}
-            id="my-canvas"
-          />
-        </div>
+        <ClickAwayListener onClickAway={handleClickAway}>
+          <div className={styles.canvas}>
+            <canvas
+              width={props.width}
+              height={props.height}
+              ref={myCanvas}
+              id="my-canvas"
+            />
+          </div>
+        </ClickAwayListener>
         <div className={classes.buttonContainer}>
           <IconButton onClick={downloadImage} variant="contained"><GetAppIcon /></IconButton>
           <Button variant="contained" color="primary">Save</Button>
