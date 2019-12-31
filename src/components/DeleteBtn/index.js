@@ -12,7 +12,7 @@ const DeleteBtn = (props) => {
   }
 
   const onKeyDown = e => {
-    if (e.key === 'Delete')
+    if (e.key === 'Delete' || e.key === 'Backspace')
       remove();
   }
 
